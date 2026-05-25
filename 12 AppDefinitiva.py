@@ -77,12 +77,12 @@ if documento is not None:
         return FAISS.from_texts(frammenti, embedding=embeddings)
     
     vettori = crea_vectorstore(frammenti)
-    # st.write("Embedding recuperati!")
+    st.write("Embedding recuperati!")
 
     # -------------------------------------------------------------------
     # Gestione prompt
     # -------------------------------------------------------------------
-     def invia():
+    def invia():
          st.session_state.domanda_inviata = st.session_state.domanda_utente
          salva il contenuto di input, cioè domanda_utente, in domanda_inviata
          st.session_state.domanda_utente = ""
