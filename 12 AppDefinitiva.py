@@ -33,9 +33,9 @@ st.markdown(
 
 st.header("Assistenza online")
 
-st.image("Chatbot (1).webp", width=500)
+st.image("REAL CHATBOT/Chatbot.webp", width=500)
 
-documento = "Costituzione_italiana.pdf"
+documento = "REAL CHATBOT/Costituzione_italiana.pdf"
 
 # Estrazione del contenuto e spezzettamento
 if documento is not None:
@@ -77,17 +77,25 @@ if documento is not None:
         return FAISS.from_texts(frammenti, embedding=embeddings)
     
     vettori = crea_vectorstore(frammenti)
-    st.write("Embedding recuperati!")
+    # st.write("Embedding recuperati!")
 
     # -------------------------------------------------------------------
     # Gestione prompt
     # -------------------------------------------------------------------
-    def invia():
-         st.session_state.domanda_inviata = st.session_state.domanda_utente
-     key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
+    # def invia():
+        # st.session_state.domanda_inviata = st.session_state.domanda_utente
+        # salva il contenuto di input, cioè domanda_utente, in domanda_inviata
+        # st.session_state.domanda_utente = ""
+        # reset dopo invio
 
-     domanda_utente = st.session_state.get("domanda_inviata", "")
-     
+    # st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
+    # key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
+    # Ogni volta che l’utente modifica il campo e preme Invio,
+    # la funzione invia() viene chiamata.
+
+    # domanda_utente = st.session_state.get("domanda_inviata", "")
+    # Recupera il valore salvato in "domanda_inviata".
+    # Se "domanda_inviata" non è ancora stato definito (es. al primo avvio dell'app),
     # allora il valore predefinito sarà "" (secondo argomento dell'istruzione)
     # --------------------------------------------------
 
