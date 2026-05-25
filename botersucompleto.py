@@ -20,16 +20,205 @@ st.set_page_config(page_title= "RagChatbot",
 
 # Personalizzazione colori:
 # Colori esadecimali: https://divmagic.com/it/tools/color-converter
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #B84B4B;
-        color: #B1D4D8;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True)
+st.markdown("""
+
+<style>
+
+/* =========================
+
+   SFONDO PRINCIPALE
+
+========================= */
+
+.stApp {
+
+    background: linear-gradient(
+
+        135deg,
+
+        #2A64C5,
+
+        #3B7BFF
+
+    );
+
+    color: #EAF6FF;
+
+}
+
+/* =========================
+
+   TITOLO
+
+========================= */
+
+h1, h2, h3 {
+
+    color: #EAF6FF;
+
+    font-weight: 700;
+
+}
+
+/* =========================
+
+   LASTRA CENTRALE
+
+========================= */
+
+.main .block-container {
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 28px;
+
+    padding: 2rem;
+
+    margin-top: 2rem;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+
+}
+
+/* =========================
+
+   INPUT CHAT
+
+========================= */
+
+.stTextInput input {
+
+    background-color: rgba(255, 255, 255, 0.9);
+
+    color: #1A1A1A;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 12px;
+
+    font-size: 16px;
+
+}
+
+/* FOCUS INPUT */
+
+.stTextInput input:focus {
+
+    box-shadow: 0 0 12px rgba(255,255,255,0.6);
+
+}
+
+/* =========================
+
+   BOTTONI
+
+========================= */
+
+.stButton button {
+
+    background: white;
+
+    color: #2A64C5;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 10px 20px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+.stButton button:hover {
+
+    transform: scale(1.03);
+
+}
+
+/* =========================
+
+   RISPOSTA
+
+========================= */
+
+.stMarkdown {
+
+    color: white;
+
+}
+
+/* =========================
+
+   PARALLASSE SIMULATO
+
+========================= */
+
+.stApp::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    background: radial-gradient(
+
+        circle at top,
+
+        rgba(255,255,255,0.18),
+
+        transparent 60%
+
+    );
+
+    animation: parallaxMove 12s ease-in-out infinite alternate;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+@keyframes parallaxMove {
+
+    0% { transform: translateY(0px); }
+
+    100% { transform: translateY(-25px); }
+
+}
+
+/* =========================
+
+   SIDEBAR
+
+========================= */
+
+section[data-testid="stSidebar"] {
+
+    background-color: rgba(255,255,255,0.08);
+
+    border-right: 1px solid rgba(255,255,255,0.2);
+
+}
+
+</style>
+
+""", unsafe_allow_html=True)
 
 st.header("Assistenza online")
 
