@@ -20,152 +20,48 @@ st.set_page_config(page_title= "RagChatbot",
 
 # Personalizzazione colori:
 # Colori esadecimali: https://divmagic.com/it/tools/color-converter
+# ... TUTTO IL TUO CODICE RAG CHATBOT
+
+if domanda_utente:
+    risposta = catena.invoke(domanda_utente)
+    st.write(risposta)
+
+# ⬇️ QUI IN FONDO INCOLLI IL FOOTER
 st.markdown("""
-
 <style>
-
-/* SFONDO GENERALE */
-
-.stApp {
-
-    background: linear-gradient(
-
-        135deg,
-
-        #003A70,
-
-        #005B9F,
-
-        #00A6D6
-
-    );
-
-    color: #EAF6FF;
-
+/* FOOTER STYLE */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    color: #1A1A1A;
+    padding: 14px 24px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    z-index: 999;
 }
 
-/* TITOLO */
-
-h1, h2, h3 {
-
-    color: #7BE7FF;
-
-    font-weight: 700;
-
+.footer a {
+    color: #005B9F;
+    text-decoration: none;
+    font-weight: 500;
 }
-
-/* LASTRA CENTRALE */
-
-.main .block-container {
-
-    background: rgba(20, 35, 50, 0.72);
-
-    border: 1px solid rgba(123, 231, 255, 0.25);
-
-    backdrop-filter: blur(18px);
-
-    border-radius: 28px;
-
-    padding: 2rem;
-
-    margin-top: 2rem;
-
-    box-shadow:
-
-        0 0 25px rgba(123, 231, 255, 0.10),
-
-        0 0 80px rgba(0, 183, 255, 0.08);
-
-}
-
-/* INPUT CHAT */
-
-.stTextInput input {
-
-    background-color: rgba(10, 25, 40, 0.9);
-
-    color: #D9F6FF;
-
-    border: 1px solid #46D9FF;
-
-    border-radius: 14px;
-
-    padding: 12px;
-
-    font-size: 16px;
-
-}
-
-/* FOCUS INPUT */
-
-.stTextInput input:focus {
-
-    border: 1px solid #7BE7FF;
-
-    box-shadow: 0 0 12px rgba(123, 231, 255, 0.45);
-
-}
-
-/* BOTTONI */
-
-.stButton button {
-
-    background: linear-gradient(
-
-        90deg,
-
-        #46D9FF,
-
-        #00B7FF
-
-    );
-
-    color: white;
-
-    border: none;
-
-    border-radius: 14px;
-
-    padding: 10px 20px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-
-}
-
-/* HOVER */
-
-.stButton button:hover {
-
-    transform: scale(1.03);
-
-    box-shadow: 0 0 18px rgba(70, 217, 255, 0.55);
-
-}
-
-/* RISPOSTA CHAT */
-
-.stMarkdown {
-
-    color: #DFFBFF;
-
-}
-
-/* SIDEBAR */
-
-section[data-testid="stSidebar"] {
-
-    background-color: #08141F;
-
-    border-right: 1px solid rgba(123, 231, 255, 0.15);
-
-}
-
 </style>
 
-""",
-unsafe_allow_html=True)
+<div class="footer">
+    <div>🏛️ RAG Chatbot – Assistente documentale universitario</div>
+    <div>
+        © 2026 – Progetto accademico |
+        <a href="https://www.ersupalermo.it" target="_blank">ERSU Palermo</a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 st.markdown("""
 
 st.header("Assistenza online")
