@@ -222,51 +222,13 @@ section[data-testid="stSidebar"] {
 </style>
 
 st.markdown("""
-<style>
-/* ... (tutto il tuo CSS originale rimane invariato) ... */
-
-/* =========================================
-   INTEGRAZIONE TITOLO E MOTTO NELLA LASTRE
-========================================= */
-
-/* Posizionamento del titolo dentro la lastra con animazione */
-.parallax-header {
-    text-align: center;
-    position: relative;
-    padding-top: 1rem; /* Spazio extra in alto per l'allineamento */
-    animation: parallaxHeaderMove 10s ease-in-out infinite alternate;
-}
-
-@keyframes parallaxHeaderMove {
-    0% { transform: translateY(-5px); }
-    100% { transform: translateY(5px); }
-}
-
-/* Regolazione della spaziatura per il motto */
-.parallax-header h1 {
-    margin-bottom: -10px !important; /* Riavvicina il motto al titolo */
-    color: #EAF6FF;
-    font-weight: 700;
-}
-
-.parallax-header p.motto {
-    font-size: 1.1rem; /* Leggermente più piccolo del testo del corpo */
-    font-style: italic;
-    color: rgba(234, 246, 255, 0.85); /* Opacità per eleganza */
-    margin-top: 0 !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-# Sostituzione del titolo con il nuovo blocco integrato
-st.markdown("""
-    <div class="parallax-header">
-        <h1>ERSU Palermo</h1>
-        <p class="motto">Il tuo supporto intelligente per la vita universitaria</p>
+    <div style="text-align: center;">
+        <h1 style="color: #EAF6FF;">Assistenza ERSU Palermo</h1>
+        <p style="font-size: 1.2rem; font-style: italic; color: #EAF6FF;">
+            Il tuo supporto intelligente per la vita universitaria
+        </p>
     </div>
 """, unsafe_allow_html=True)
-
 st.image("Chatbot (1).webp", width=500)
 
 documento = "Costituzione_italiana.pdf"
