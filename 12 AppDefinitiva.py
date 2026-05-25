@@ -84,7 +84,6 @@ if documento is not None:
     # -------------------------------------------------------------------
     def invia():
          st.session_state.domanda_inviata = st.session_state.domanda_utente
-     st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
      key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
 
      domanda_utente = st.session_state.get("domanda_inviata", "")
