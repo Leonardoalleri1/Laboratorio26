@@ -32,15 +32,15 @@ st.markdown("""
 
         135deg,
 
-        #07121D,
+        #003A70,
 
-        #0B1F2E,
+        #005B9F,
 
-        #102C3D
+        #00A6D6
 
     );
 
-    color: #D9F6FF;
+    color: #EAF6FF;
 
 }
 
