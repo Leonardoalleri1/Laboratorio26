@@ -349,3 +349,40 @@ if documento is not None:
     if domanda_utente:
         risposta = catena.invoke(domanda_utente)
         st.write(risposta)
+    st.markdown("""
+<style>
+    /* Aggiungiamo un padding al contenitore principale per evitare sovrapposizioni */
+    .main .block-container {
+        padding-bottom: 80px !important; 
+    }
+    
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 0.9rem;
+        z-index: 999;
+    }
+    .footer a {
+        color: #EAF6FF;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+
+<div class="footer">
+    <p>
+        <strong>ERSU Palermo</strong> | 
+        Email: <a href="mailto:info@ersupalermo.it">info@ersupalermo.it</a> | 
+        Telefono: 091.6541111 | 
+        <a href="https://www.ersupalermo.it/" target="_blank">Sito Ufficiale</a>
+    </p>
+</div>
+""", unsafe_allow_html=True)
