@@ -82,20 +82,19 @@ if documento is not None:
     # -------------------------------------------------------------------
     # Gestione prompt
     # -------------------------------------------------------------------
-    # def invia():
-        # st.session_state.domanda_inviata = st.session_state.domanda_utente
-        # salva il contenuto di input, cioè domanda_utente, in domanda_inviata
-        # st.session_state.domanda_utente = ""
-        # reset dopo invio
+     def invia():
+         st.session_state.domanda_inviata = st.session_state.domanda_utente
+         salva il contenuto di input, cioè domanda_utente, in domanda_inviata
+         st.session_state.domanda_utente = ""
+         reset dopo invio
 
-    # st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
-    # key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
-    # Ogni volta che l’utente modifica il campo e preme Invio,
-    # la funzione invia() viene chiamata.
+     st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
+     key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
+     la funzione invia() viene chiamata.
 
-    # domanda_utente = st.session_state.get("domanda_inviata", "")
-    # Recupera il valore salvato in "domanda_inviata".
-    # Se "domanda_inviata" non è ancora stato definito (es. al primo avvio dell'app),
+     domanda_utente = st.session_state.get("domanda_inviata", "")
+     Recupera il valore salvato in "domanda_inviata".
+     
     # allora il valore predefinito sarà "" (secondo argomento dell'istruzione)
     # --------------------------------------------------
 
