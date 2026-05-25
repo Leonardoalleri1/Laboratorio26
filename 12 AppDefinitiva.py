@@ -62,7 +62,7 @@ if documento is not None:
         return taglierina.split_text(testo)
 
     frammenti = crea_frammenti(testo)
-      #st.write(f"Totale frammenti creati: {len(frammenti)}")
+      st.write(f"Totale frammenti creati: {len(frammenti)}")
       st.write(frammenti)
 
     # Generiamo gli embeddings
@@ -82,15 +82,13 @@ if documento is not None:
     # -------------------------------------------------------------------
     # Gestione prompt
     # -------------------------------------------------------------------
-    # def invia():
-        # st.session_state.domanda_inviata = st.session_state.domanda_utente
-        # salva il contenuto di input, cioè domanda_utente, in domanda_inviata
-        # st.session_state.domanda_utente = ""
-        # reset dopo invio
+     def invia():
+         st.session_state.domanda_inviata = st.session_state.domanda_utente
+         st.session_state.domanda_utente = ""
+         reset dopo invio
 
-    # st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
-    # key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
-    # Ogni volta che l’utente modifica il campo e preme Invio,
+     st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
+     key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
     # la funzione invia() viene chiamata.
 
     # domanda_utente = st.session_state.get("domanda_inviata", "")
