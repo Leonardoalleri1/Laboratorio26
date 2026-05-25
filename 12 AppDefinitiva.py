@@ -61,9 +61,9 @@ if documento is not None:
         chunk_overlap=200)
         return taglierina.split_text(testo)
 
-    frammenti = crea_frammenti(testo)
-      st.write(f"Totale frammenti creati: {len(frammenti)}")
-      st.write(frammenti)
+   # frammenti = crea_frammenti(testo)
+  #    st.write(f"Totale frammenti creati: {len(frammenti)}")
+   #   st.write(frammenti)
 
     # Generiamo gli embeddings
     # e li salviamo in un vector store o vector db (es. FAISS, Pinecone, etc.)
