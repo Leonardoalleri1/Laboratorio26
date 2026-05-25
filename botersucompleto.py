@@ -220,7 +220,14 @@ section[data-testid="stSidebar"] {
 
 """, unsafe_allow_html=True)
 
-st.header("Assistenza online")
+st.markdown("""
+    <div style="text-align: center;">
+        <h1 style="color: #EAF6FF;">Assistenza ERSU Palermo</h1>
+        <p style="font-size: 1.2rem; font-style: italic; color: #EAF6FF;">
+            Il tuo supporto intelligente per la vita universitaria
+        </p>
+    </div>
+""", unsafe_allow_html=True)
 
 st.image("Chatbot (1).webp", width=500)
 
