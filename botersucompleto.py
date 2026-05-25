@@ -229,7 +229,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-st.image("Chatbot (1).webp", width=500)
+st.image("ERSU.AI.png", width=500)
 
 documento = "Costituzione_italiana.pdf"
 
