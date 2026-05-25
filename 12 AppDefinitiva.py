@@ -42,7 +42,7 @@ if documento is not None:
     @st.cache_data(show_spinner="Sto leggendo il PDF...")
     def estrai_testo_pdf(documento: str) -> str:
         with pdfplumber.open(documento) as pdf:
-              st.write(f"Pagine totali: {len(pdf.pages)} - Comincio la scansione...")
+            st.write(f"Pagine totali: {len(pdf.pages)} - Comincio la scansione...")
             testo = ""
             for pagina in pdf.pages:
                 # Se la pagina è null menttiamo ""
