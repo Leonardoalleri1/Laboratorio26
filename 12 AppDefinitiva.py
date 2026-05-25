@@ -85,14 +85,11 @@ if documento is not None:
     def invia():
          st.session_state.domanda_inviata = st.session_state.domanda_utente
          st.session_state.domanda_utente = ""
-         reset dopo invio
 
      st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
      key="domanda_utente": assegna a st.session_state ciò che scriviamo (domanda_utente)
-     la funzione invia() viene chiamata.
 
      domanda_utente = st.session_state.get("domanda_inviata", "")
-     Recupera il valore salvato in "domanda_inviata".
      
     # allora il valore predefinito sarà "" (secondo argomento dell'istruzione)
     # --------------------------------------------------
