@@ -269,8 +269,6 @@ st.markdown("""
 
 st.image("Chatbot (1).webp", width=500)
 
-st.image("Chatbot (1).webp", width=500)
-
 documento = "Costituzione_italiana.pdf"
 
 # Estrazione del contenuto e spezzettamento
