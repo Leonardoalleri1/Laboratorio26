@@ -1,6 +1,9 @@
 # ###########################################################
 # CHATBOT SENZA IL CARICAMENTO DEL PDF DA PARTE DELL'UTENTE #
 # ###########################################################
+# ###########################################################
+# CHATBOT SENZA IL CARICAMENTO DEL PDF DA PARTE DELL'UTENTE #
+# ###########################################################
 
 import streamlit as st
 import pdfplumber
@@ -20,55 +23,23 @@ st.set_page_config(page_title= "RagChatbot",
 
 # Personalizzazione colori:
 # Colori esadecimali: https://divmagic.com/it/tools/color-converter
-# ... TUTTO IL TUO CODICE RAG CHATBOT
-
-if domanda_utente:
-    risposta = catena.invoke(domanda_utente)
-    st.write(risposta)
-
-# ⬇️ QUI IN FONDO INCOLLI IL FOOTER
-st.markdown("""
-<style>
-/* FOOTER STYLE */
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #FFFFFF;
-    color: #1A1A1A;
-    padding: 14px 24px;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-    z-index: 999;
-}
-
-.footer a {
-    color: #005B9F;
-    text-decoration: none;
-    font-weight: 500;
-}
-</style>
-
-<div class="footer">
-    <div>🏛️ RAG Chatbot – Assistente documentale universitario</div>
-    <div>
-        © 2026 – Progetto accademico |
-        <a href="https://www.ersupalermo.it" target="_blank">ERSU Palermo</a>
-    </div>
-</div>
-""", unsafe_allow_html=True)
-st.markdown("""
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #B84B4B;
+        color: #B1D4D8;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True)
 
 st.header("Assistenza online")
 
 st.image("Chatbot (1).webp", width=500)
 
 documento = "Costituzione_italiana.pdf"
+
 # Estrazione del contenuto e spezzettamento
 if documento is not None:
     @st.cache_data(show_spinner="Sto leggendo il PDF...")
@@ -192,3 +163,4 @@ if documento is not None:
     if domanda_utente:
         risposta = catena.invoke(domanda_utente)
         st.write(risposta)
+     
