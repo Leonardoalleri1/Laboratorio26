@@ -62,7 +62,7 @@ if documento is not None:
         return taglierina.split_text(testo)
 
     frammenti = crea_frammenti(testo)
-      st.write(f"Totale frammenti creati: {len(frammenti)}")
+      #st.write(f"Totale frammenti creati: {len(frammenti)}")
       st.write(frammenti)
 
     # Generiamo gli embeddings
