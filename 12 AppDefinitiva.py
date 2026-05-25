@@ -42,13 +42,13 @@ if documento is not None:
     @st.cache_data(show_spinner="Sto leggendo il PDF...")
     def estrai_testo_pdf(documento: str) -> str:
         with pdfplumber.open(documento) as pdf:
-            # st.write(f"Pagine totali: {len(pdf.pages)} - Comincio la scansione...")
+              st.write(f"Pagine totali: {len(pdf.pages)} - Comincio la scansione...")
             testo = ""
             for pagina in pdf.pages:
                 # Se la pagina è null menttiamo ""
                 testo_pagina = pagina.extract_text() or ""
                 testo = testo + testo_pagina + "\n"
-                # testo += pagina.extract_text() + "\n"
+                testo += pagina.extract_text() + "\n"
         return testo.strip()
     
     testo = estrai_testo_pdf(documento)
@@ -62,8 +62,8 @@ if documento is not None:
         return taglierina.split_text(testo)
 
     frammenti = crea_frammenti(testo)
-    # st.write(f"Totale frammenti creati: {len(frammenti)}")
-    # st.write(frammenti)
+      st.write(f"Totale frammenti creati: {len(frammenti)}")
+      st.write(frammenti)
 
     # Generiamo gli embeddings
     # e li salviamo in un vector store o vector db (es. FAISS, Pinecone, etc.)
@@ -77,7 +77,7 @@ if documento is not None:
         return FAISS.from_texts(frammenti, embedding=embeddings)
     
     vettori = crea_vectorstore(frammenti)
-    # st.write("Embedding recuperati!")
+      st.write("Embedding recuperati!")
 
     # -------------------------------------------------------------------
     # Gestione prompt
