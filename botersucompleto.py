@@ -351,71 +351,26 @@ if documento is not None:
     if domanda_utente:
         risposta = catena.invoke(domanda_utente)
         st.write(risposta)
+      
 st.markdown("""
 
-<style>
-
-.footer {
-
-    position: fixed;
-
-    bottom: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    background: #FFFFFF;
-
-    color: #1A1A1A;
-
-    padding: 14px 24px;
-
-    border-top: 1px solid rgba(0,0,0,0.08);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    font-size: 13px;
-
-    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
-
-    z-index: 999;
-
-}
-
-.footer a {
-
-    color: #2A64C5;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-}
-
-.footer a:hover {
-
-    text-decoration: underline;
-
-}
-
-</style>
-
-<div class="footer">
+<div class="bottom-bar">
 
     <div>
 
-        📩 Contatti: support@ragchatbot.it | ☎ +39 091 000000
+        📩 support@ragchatbot.it | ☎ +39 091 000000
 
     </div>
 
     <div>
 
-        © 2026 RAG Chatbot | Progetto universitario
+        © 2026 RAG Chatbot | Progetto universitario |
+
+        <a href="https://www.ersupalermo.it" target="_blank">
+
+            ERSU Palermo
+
+        </a>
 
     </div>
 
