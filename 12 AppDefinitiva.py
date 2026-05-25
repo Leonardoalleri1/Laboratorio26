@@ -84,7 +84,6 @@ if documento is not None:
     # -------------------------------------------------------------------
     def invia():
          st.session_state.domanda_inviata = st.session_state.domanda_utente
-         salva il contenuto di input, cioè domanda_utente, in domanda_inviata
          st.session_state.domanda_utente = ""
          reset dopo invio
 
