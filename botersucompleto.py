@@ -200,15 +200,3 @@ if documento is not None:
 if domanda_utente:
     risposta = catena.invoke(domanda_utente)
     st.write(risposta)
-
-# --- IL FOOTER VA QUI (In fondo allo script) ---
-st.markdown("""
-<div class="footer">
-    <p>
-        <strong>ERSU Palermo</strong> | 
-        Email: <a href="mailto:info@ersupalermo.it">info@ersupalermo.it</a> | 
-        Telefono: 091.6541111 | 
-        <a href="https://www.ersupalermo.it/" target="_blank">Sito Ufficiale</a>
-    </p>
-</div>
-""", unsafe_allow_html=True)
