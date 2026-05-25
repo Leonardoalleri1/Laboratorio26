@@ -229,8 +229,10 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-st.image("ERSU.AI2-Photoroom.png", width=500)
+col1, col2, col3 = st.columns([1, 2, 1])
 
+with col2:
+    st.image("ERSU.AI2-Photoroom.png", use_container_width=True)
 documento = "Costituzione_italiana.pdf"
 
 # Estrazione del contenuto e spezzettamento
