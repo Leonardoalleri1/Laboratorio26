@@ -20,211 +20,43 @@ st.set_page_config(page_title= "RagChatbot",
 # Colori esadecimali: https://divmagic.com/it/tools/color-converter
 st.markdown("""
 
-<style>
-
-/* =========================
-
-   SFONDO PRINCIPALE
-
-========================= */
-
-.stApp {
-
-    background: linear-gradient(
-
-        135deg,
-
-        #2A64C5,
-
-        #3B7BFF
-
-    );
-
-    color: #EAF6FF;
-
-}
-
-/* =========================
-
-   TITOLO
-
-========================= */
-
-h1, h2, h3 {
-
-    color: #EAF6FF;
-
-    font-weight: 700;
-
-}
-
-/* =========================
-
-   LASTRA CENTRALE
-
-========================= */
-
-.main .block-container {
-
-    background: rgba(255, 255, 255, 0.10);
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    backdrop-filter: blur(18px);
-
-    border-radius: 28px;
-
-    padding: 2rem;
-
-    margin-top: 2rem;
-
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-
-}
-
-/* =========================
-
-   INPUT CHAT
-
-========================= */
-
-.stTextInput input {
-
-    background-color: rgba(255, 255, 255, 0.9);
-
-    color: #1A1A1A;
-
-    border: none;
-
-    border-radius: 14px;
-
-    padding: 12px;
-
-    font-size: 16px;
-
-}
-
-/* FOCUS INPUT */
-
-.stTextInput input:focus {
-
-    box-shadow: 0 0 12px rgba(255,255,255,0.6);
-
-}
-
-/* =========================
-
-   BOTTONI
-
-========================= */
-
-.stButton button {
-
-    background: white;
-
-    color: #2A64C5;
-
-    border: none;
-
-    border-radius: 14px;
-
-    padding: 10px 20px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-
-}
-
-.stButton button:hover {
-
-    transform: scale(1.03);
-
-}
-
-/* =========================
-
-   RISPOSTA
-
-========================= */
-
-.stMarkdown {
-
-    color: white;
-
-}
-
-/* =========================
-
-   PARALLASSE SIMULATO
-
-========================= */
-
-.stApp::before {
-
-    content: "";
-
-    position: fixed;
-
-    top: 0;
-
-    left: 0;
-
-    right: 0;
-
-    bottom: 0;
-
-    background: radial-gradient(
-
-        circle at top,
-
-        rgba(255,255,255,0.18),
-
-        transparent 60%
-
-    );
-
-    animation: parallaxMove 12s ease-in-out infinite alternate;
-
-    pointer-events: none;
-
-    z-index: 0;
-
-}
-
-@keyframes parallaxMove {
-
-    0% { transform: translateY(0px); }
-
-    100% { transform: translateY(-25px); }
-
-}
-
-/* =========================
-
-   SIDEBAR
-
-========================= */
-
-section[data-testid="stSidebar"] {
-
-    background-color: rgba(255,255,255,0.08);
-
-    border-right: 1px solid rgba(255,255,255,0.2);
-
-}
-
-</style>
-
-""", unsafe_allow_html=True)
-
 st.markdown("""
-    <div style="text-align: center;">
-        <h1 style="color: #EAF6FF;">Assistenza ERSU Palermo</h1>
-        <p style="font-size: 1.2rem; font-style: italic; color: #EAF6FF;">
-            Il tuo supporto intelligente per la vita universitaria
-        </p>
-    </div>
+<style>
+    .stApp { background: linear-gradient(135deg, #2A64C5, #3B7BFF); color: #EAF6FF; }
+    h1 { color: #EAF6FF; font-weight: 700; text-align: center; margin-bottom: 0px; }
+    .motto { text-align: center; font-style: italic; color: #EAF6FF; margin-bottom: 25px; }
+    
+    /* --- NUOVO BLOCCO MODERNO --- */
+    .floating-logo {
+        animation: float 4s ease-in-out infinite;
+        filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+    }
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+    .main .block-container {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+        transition: transform 0.3s ease;
+    }
+    .gradient-text {
+        background: linear-gradient(to right, #ffffff, #a0c4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+    }
+    /* ---------------------------- */
+
+    .footer { 
+        position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; 
+        background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
+        padding: 15px; z-index: 999; color: white;
+    }
+</style>
 """, unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([1, 2, 1])
