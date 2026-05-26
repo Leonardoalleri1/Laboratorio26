@@ -297,16 +297,16 @@ if documento is not None:
     # allora il valore predefinito sarà "" (secondo argomento dell'istruzione)
     # --------------------------------------------------
 
- prompt = st.chat_input("Scrivi a Massimo, il tuo assistente...")
+    prompt = st.chat_input("Scrivi a Massimo, il tuo assistente...")
 
- if prompt:
-    with st.chat_message("user"):
-          st.markdown(prompt)
-    with st.chat_message("assistant"):
-           with st.spinner("Massimo sta cercando la risposta..."):
+    if prompt:
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        
+        with st.chat_message("assistant"):
+            with st.spinner("Massimo sta cercando la risposta..."):
                 risposta = catena.invoke(prompt)
                 st.markdown(risposta)
-
     # --------------------------------------------------
 
     # Generazione della risposta in una chain di eventi
