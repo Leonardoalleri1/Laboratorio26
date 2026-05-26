@@ -297,16 +297,13 @@ if documento is not None:
     # allora il valore predefinito sarà "" (secondo argomento dell'istruzione)
     # --------------------------------------------------
 
-    prompt = st.chat_input("Scrivi a Massimo, il tuo assistente...")
+    def invia():
+        st.session_state.domanda_inviata = st.session_state.domanda_utente
+        st.session_state.domanda_utente = ""
 
-    if prompt:
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        
-        with st.chat_message("assistant"):
-            with st.spinner("Massimo sta cercando la risposta..."):
-                risposta = catena.invoke(prompt)
-                st.markdown(risposta)
+    st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
+    domanda_utente = st.session_state.get("domanda_inviata", "")
+
     # --------------------------------------------------
 
     # Generazione della risposta in una chain di eventi
@@ -379,6 +376,10 @@ Regole di comportamento:
         # StrOutputParser() prende l’output del modello 
         # e lo traforma in una stringa semplice (senza aggiunta di info ecc.)
     
+    if domanda_utente:
+        risposta = catena.invoke(domanda_utente)
+        st.write(risposta)
+    st.markdown("""
 <style>
     /* Aggiungiamo un padding al contenitore principale per evitare sovrapposizioni */
     .main .block-container {
