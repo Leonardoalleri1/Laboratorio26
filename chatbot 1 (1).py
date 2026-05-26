@@ -297,12 +297,18 @@ if documento is not None:
     # allora il valore predefinito sarà "" (secondo argomento dell'istruzione)
     # --------------------------------------------------
 
-    def invia():
-        st.session_state.domanda_inviata = st.session_state.domanda_utente
-        st.session_state.domanda_utente = ""
+ prompt = st.chat_input("Scrivi a Massimo, il tuo assistente...")
 
-    st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
-    domanda_utente = st.session_state.get("domanda_inviata", "")
+    if prompt:
+        # Mostra il messaggio dell'utente
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        
+        # Mostra la risposta di Massimo
+        with st.chat_message("assistant"):
+            with st.spinner("Massimo sta cercando la risposta..."):
+                risposta = catena.invoke(prompt)
+                st.markdown(risposta)
 
     # --------------------------------------------------
 
