@@ -324,7 +324,8 @@ if documento is not None:
     Puoi accedere a informazioni esterne, come Internet. 
     Se non conosci la risposta, dì semplicemente 'Scusami non sono in grado di rispondere.
     Cerca di essere abbastanza informale ma senza esagerare e specifico allo stesso tempo.
-    Inserisci anche qualche emoji, se è il caso. Non essere ripetitivo, non citare il contesto che ti ho inviato.
+    Inserisci anche qualche emoji, se è il caso. Se non sai rispondere, evita di citare il testo o conteto che ti ho inviato, ricordati che 
+    stai parlando a uno studente, devi essere deciso.
     Contesto:\n{context}'''),
         ("human", "{question}")
         ])
