@@ -103,35 +103,35 @@ h1, h2, h3 {
 
 /* FOCUS INPUT */
 
-.stTextInput input:focus {
-
-    background-color: #1e2a3d; 
-    border-color: #ffffff;     
-    box-shadow: 0 0 8px rgba(59, 123, 255, 0.5);
-    outline: none
-
+.stTextInput input {
+    background-color: #1a2333;
+    color: #ffffff;
+    border: 1px solid #3b7bff;
+    border-radius: 14px;
+    padding: 12px;
+    padding-right: 100px; /* Spazio per far stare il bottone */
+    font-size: 16px;
 }
+
 div[data-testid="stHorizontalBlock"] {
-    align-items: flex-end;
+    align-items: center;
     gap: 10px;
 }
 
 .stButton button {
-    background-color: #1a2333 !important;
+    background-color: #2A64C5 !important;
     color: white !important;
     border: 1px solid #3b7bff !important;
-    border-radius: 14px;
-    padding: 10px 20px;
+    border-radius: 14px !important;
+    padding: 10px 20px !important;
     font-weight: bold;
-    height: 44px; /* Fondamentale per allinearlo all'input */
+    height: 44px;
     transition: 0.3s;
 }
 
 .stButton button:hover {
     transform: scale(1.03);
-    background-color: #2A64C5 !important;
 }
-
 /* =========================
 
    BOTTONI
