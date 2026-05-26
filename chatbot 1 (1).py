@@ -299,14 +299,11 @@ if documento is not None:
 
  prompt = st.chat_input("Scrivi a Massimo, il tuo assistente...")
 
-    if prompt:
-        # Mostra il messaggio dell'utente
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        
-        # Mostra la risposta di Massimo
-        with st.chat_message("assistant"):
-            with st.spinner("Massimo sta cercando la risposta..."):
+ if prompt:
+    with st.chat_message("user"):
+          st.markdown(prompt)
+    with st.chat_message("assistant"):
+           with st.spinner("Massimo sta cercando la risposta..."):
                 risposta = catena.invoke(prompt)
                 st.markdown(risposta)
 
