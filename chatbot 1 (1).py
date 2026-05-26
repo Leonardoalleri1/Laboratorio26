@@ -111,6 +111,26 @@ h1, h2, h3 {
     outline: none
 
 }
+div[data-testid="stHorizontalBlock"] {
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.stButton button {
+    background-color: #1a2333 !important;
+    color: white !important;
+    border: 1px solid #3b7bff !important;
+    border-radius: 14px;
+    padding: 10px 20px;
+    font-weight: bold;
+    height: 44px; /* Fondamentale per allinearlo all'input */
+    transition: 0.3s;
+}
+
+.stButton button:hover {
+    transform: scale(1.03);
+    background-color: #2A64C5 !important;
+}
 
 /* =========================
 
