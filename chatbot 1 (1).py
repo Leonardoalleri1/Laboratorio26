@@ -379,10 +379,6 @@ Regole di comportamento:
         # StrOutputParser() prende l’output del modello 
         # e lo traforma in una stringa semplice (senza aggiunta di info ecc.)
     
-    if domanda_utente:
-        risposta = catena.invoke(domanda_utente)
-        st.write(risposta)
-    st.markdown("""
 <style>
     /* Aggiungiamo un padding al contenitore principale per evitare sovrapposizioni */
     .main .block-container {
