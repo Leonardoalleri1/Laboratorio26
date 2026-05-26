@@ -319,7 +319,15 @@ if documento is not None:
         st.session_state.domanda_inviata = st.session_state.domanda_utente
         st.session_state.domanda_utente = ""
 
-    st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia)
+    # Creiamo due colonne: 4 parti per l'input, 1 parte per il bottone
+    col_input, col_btn = st.columns([4, 1])
+
+    with col_input:
+        st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia, label_visibility="collapsed")
+
+    with col_btn:
+        st.button("Invia", on_click=invia)
+
     domanda_utente = st.session_state.get("domanda_inviata", "")
 
     # --------------------------------------------------
