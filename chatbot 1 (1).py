@@ -315,20 +315,32 @@ if documento is not None:
     # allora il valore predefinito sarà "" (secondo argomento dell'istruzione)
     # --------------------------------------------------
 
-    def invia():
-        st.session_state.domanda_inviata = st.session_state.domanda_utente
-        st.session_state.domanda_utente = ""
+   if "messages" not in st.session_state:
+    st.session_state.messages = [{"role": "assistant", "content": "Ciao! Sono Massimo, come posso aiutarti oggi?"}]
 
-    # Creiamo due colonne: 4 parti per l'input, 1 parte per il bottone
-    col_input, col_btn = st.columns([4, 1])
+# Mostra i messaggi passati
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.write(msg["content"])
 
-    with col_input:
-        st.text_input("Chiedi al chatbot:", key="domanda_utente", on_change=invia, label_visibility="collapsed")
+# Gestione input con pulsante affiancato
+def invia_messaggio():
+    if st.session_state.user_input:
+        user_text = st.session_state.user_input
+        st.session_state.messages.append({"role": "user", "content": user_text})
+        
+        # Genera risposta usando la tua catena
+        risposta = catena.invoke(user_text)
+        
+        st.session_state.messages.append({"role": "assistant", "content": risposta})
+        st.session_state.user_input = "" # Pulisce l'input
 
-    with col_btn:
-        st.button("Invia", on_click=invia)
-
-    domanda_utente = st.session_state.get("domanda_inviata", "")
+# Layout orizzontale
+cols = st.columns([5, 1])
+with cols[0]:
+    st.text_input("Chiedi al chatbot:", key="user_input", label_visibility="collapsed", on_change=invia_messaggio)
+with cols[1]:
+    st.button("Invia", on_click=invia_messaggio)
 
     # --------------------------------------------------
 
