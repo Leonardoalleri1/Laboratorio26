@@ -1,3 +1,7 @@
+# ###########################################################
+# CHATBOT SENZA IL CARICAMENTO DEL PDF DA PARTE DELL'UTENTE #
+# ###########################################################
+
 import streamlit as st
 import pdfplumber
 
@@ -8,53 +12,212 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
+
 # Elenco di tutte le icone Streamlit:
 # https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/
-st.set_page_config(page_title= "RagChatbot", page_icon=":classical_building:")
+st.set_page_config(page_title= "RagChatbot",
+                   page_icon=":classical_building:")
+
+# Personalizzazione colori:
+# Colori esadecimali: https://divmagic.com/it/tools/color-converter
 st.markdown("""
+
 <style>
-    .stApp { background: linear-gradient(135deg, #2A64C5, #3B7BFF); color: #EAF6FF; }
-    
-    /* Titolo con gradiente */
-    .gradient-text {
-        background: linear-gradient(to right, #ffffff, #a0c4ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 800;
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 0px;
-    }
-    
-    .motto { text-align: center; font-style: italic; color: #EAF6FF; margin-bottom: 25px; }
-    
-    /* Effetto floating */
-    .floating-logo {
-        animation: float 4s ease-in-out infinite;
-        filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
-    }
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
-    }
-    
-    /* Glassmorphism */
-    .main .block-container { 
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 30px;
-        padding: 2rem;
-        margin-top: 2rem;
-    }
-    
-    .footer { 
-        position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; 
-        background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
-        padding: 15px; z-index: 999; color: white;
-    }
+
+/* =========================
+
+   SFONDO PRINCIPALE
+
+========================= */
+
+.stApp {
+
+    background: linear-gradient(
+
+        135deg,
+
+        #2A64C5,
+
+        #3B7BFF
+
+    );
+
+    color: #EAF6FF;
+
+}
+
+/* =========================
+
+   TITOLO
+
+========================= */
+
+h1, h2, h3 {
+
+    color: #EAF6FF;
+
+    font-weight: 700;
+
+}
+
+/* =========================
+
+   LASTRA CENTRALE
+
+========================= */
+
+.main .block-container {
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 28px;
+
+    padding: 2rem;
+
+    margin-top: 2rem;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+
+}
+
+/* =========================
+
+   INPUT CHAT
+
+========================= */
+
+.stTextInput input {
+
+    background-color: rgba(255, 255, 255, 0.9);
+
+    color: #1A1A1A;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 12px;
+
+    font-size: 16px;
+
+}
+
+/* FOCUS INPUT */
+
+.stTextInput input:focus {
+
+    box-shadow: 0 0 12px rgba(255,255,255,0.6);
+
+}
+
+/* =========================
+
+   BOTTONI
+
+========================= */
+
+.stButton button {
+
+    background: white;
+
+    color: #2A64C5;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 10px 20px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+.stButton button:hover {
+
+    transform: scale(1.03);
+
+}
+
+/* =========================
+
+   RISPOSTA
+
+========================= */
+
+.stMarkdown {
+
+    color: white;
+
+}
+
+/* =========================
+
+   PARALLASSE SIMULATO
+
+========================= */
+
+.stApp::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    background: radial-gradient(
+
+        circle at top,
+
+        rgba(255,255,255,0.18),
+
+        transparent 60%
+
+    );
+
+    animation: parallaxMove 12s ease-in-out infinite alternate;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+@keyframes parallaxMove {
+
+    0% { transform: translateY(0px); }
+
+    100% { transform: translateY(-25px); }
+
+}
+
+/* =========================
+
+   SIDEBAR
+
+========================= */
+
+section[data-testid="stSidebar"] {
+
+    background-color: rgba(255,255,255,0.08);
+
+    border-right: 1px solid rgba(255,255,255,0.2);
+
+}
+
 </style>
+
 """, unsafe_allow_html=True)
 
 st.markdown("""
@@ -66,14 +229,10 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 class='gradient-text'>Assistenza ERSU</h1>", unsafe_allow_html=True)
-st.markdown("<p class='motto'>Il tuo supporto intelligente per la vita universitaria</p>", unsafe_allow_html=True)
-
 col1, col2, col3 = st.columns([1, 2, 1])
+
 with col2:
-    st.markdown('<div class="floating-logo">', unsafe_allow_html=True)
-    st.image("Chatbot (1).webp", use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.image("ERSU.AI2-Photoroom.png", use_container_width=True)
 documento = "Costituzione_italiana.pdf"
 
 # Estrazione del contenuto e spezzettamento
@@ -160,10 +319,31 @@ if documento is not None:
     # Attenzione che nelle stringhe ''' vengono conservati spazi e indentazioni!
     prompt = ChatPromptTemplate.from_messages([
         ("system", 
-         '''Sei un assistente virtuale. 
-    Usa il contesto fornito per rispondere alla domanda in modo conciso. 
-    Puoi accedere a informazioni esterne, come Internet. 
-    Se non conosci la risposta, dì semplicemente 'Non sono in grado di rispondere'. 
+         '''Sei Massimo, assistente virtuale di ERSU Palermo.
+
+Il tuo compito è aiutare gli studenti universitari fornendo risposte precise, chiare e affidabili basate sul contesto fornito.
+
+Regole di comportamento:
+
+- Rispondi sempre in modo diretto e sicuro.
+
+- Usa un tono umano, disponibile e leggermente informale, ma professionale.
+
+- Evita giri di parole o frasi vaghe.
+
+- Non inventare informazioni.
+
+- Se una risposta non è presente nel contesto o non sei sicuro, rispondi:
+
+  "Scusami, al momento non ho informazioni precise su questo argomento."
+
+- Non citare mai il contesto o i documenti interni.
+
+- Dai priorità alla chiarezza pratica per lo studente.
+
+- Quando utile, usa elenchi puntati.
+
+- Usa emoji solo se migliorano la comunicazione 😊
     Contesto:\n{context}'''),
         ("human", "{question}")
         ])
@@ -236,4 +416,3 @@ if documento is not None:
     </p>
 </div>
 """, unsafe_allow_html=True)
-
