@@ -92,16 +92,11 @@ h1, h2, h3 {
 
 .stTextInput input {
 
-    background-color: rgba(255, 255, 255, 0.9);
-
-    color: #1A1A1A;
-
-    border: none;
-
+    background-color: #1a2333; 
+    color: #ffffff;           
+    border: 1px solid #3b7bff; 
     border-radius: 14px;
-
     padding: 12px;
-
     font-size: 16px;
 
 }
@@ -110,7 +105,10 @@ h1, h2, h3 {
 
 .stTextInput input:focus {
 
-    box-shadow: 0 0 12px rgba(255,255,255,0.6);
+    background-color: #1e2a3d; 
+    border-color: #ffffff;     
+    box-shadow: 0 0 8px rgba(59, 123, 255, 0.5);
+    outline: none
 
 }
 
